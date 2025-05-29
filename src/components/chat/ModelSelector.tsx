@@ -1,4 +1,3 @@
-import React from 'react';
 import type { LlamaModel } from '../../types/chat';
 
 interface ModelSelectorProps {
