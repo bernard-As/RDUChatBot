@@ -244,7 +244,7 @@ export function ChatPage() {
       contextDocs = await fetchRagContext(inputText);
       if (contextDocs.length === 0) {
         addMessageToConversation(activeConversationId, {
-          id: uuidv4(), sender: 'system', text: "No context found. Using general model knowledge.", timestamp: new Date()
+          id: uuidv4(), sender: 'system', text: "", timestamp: new Date()
         });
       }
     } catch (e: any) {
