@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import type { LlamaModel, Message, Conversation } from '../types/chat';
 import { ModelSelector } from '../components/chat/ModelSelector';
@@ -6,7 +6,7 @@ import { ChatWindow } from '../components/chat/ChatWindow';
 import { ChatInput } from '../components/chat/ChatInput';
 import { ConversationHistoryPanel } from '../components/chat/ConversationHistoryPanel';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Link, useParams, useNavigate } from 'react-router-dom'; // useParams and useNavigate for potential routing per chat
+import { Link, useNavigate } from 'react-router-dom'; // useParams and useNavigate for potential routing per chat
 import { loadConversations, saveConversations } from '../lib/localStorageUtils';
 
 // Constants (keep as before, or adjust)
@@ -29,7 +29,6 @@ const MOCK_MODELS: LlamaModel[] = [
 
 
 const SIMULATED_RESPONSE_DELAY_MS = 30;
-const SIMULATED_NETWORK_LATENCY_MS = 1000; // Keep for streamText if needed for non-server-stream
 const DEFAULT_N_PREDICT = 512;
 const DEFAULT_TEMPERATURE = 0.7;
 const STOP_SEQUENCES = ["\n[Question]", "\nUser:", "\nSystem:", "[/INST]"];

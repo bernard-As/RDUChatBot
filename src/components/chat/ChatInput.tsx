@@ -1,4 +1,4 @@
-import React, { useState, type FormEvent, type KeyboardEvent } from 'react';
+import { useState, type FormEvent, type KeyboardEvent } from 'react';
 
 interface ChatInputProps {
   onSendMessage: (text: string) => void;

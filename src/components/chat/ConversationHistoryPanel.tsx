@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Conversation } from '../../types/chat';
 import { motion, AnimatePresence } from 'framer-motion'; // For animations
 

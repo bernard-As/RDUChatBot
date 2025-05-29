@@ -1,5 +1,4 @@
 // src/pages/LandingPage.tsx
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 // Ensure this path correctly points to the BackgroundGradientAnimation component file
 // and that the file exports a component named BackgroundGradientAnimation
