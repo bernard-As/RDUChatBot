@@ -78,7 +78,7 @@ export function ChatPage() {
   const [availableModels] = useState<LlamaModel[]>(MOCK_MODELS);
   const [selectedModelId, setSelectedModelId] = useState<string>(MOCK_MODELS[0]?.id || '');
 
-  const navigate = useNavigate(); // If you want to update URL with conversation ID
+  // const navigate = useNavigate(); // If you want to update URL with conversation ID
 
   // Load conversations on initial mount
   useEffect(() => {
