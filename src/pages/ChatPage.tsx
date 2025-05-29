@@ -6,7 +6,7 @@ import { ChatWindow } from '../components/chat/ChatWindow';
 import { ChatInput } from '../components/chat/ChatInput';
 import { ConversationHistoryPanel } from '../components/chat/ConversationHistoryPanel';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Link, useNavigate } from 'react-router-dom'; // useParams and useNavigate for potential routing per chat
+import { Link, } from 'react-router-dom'; // useParams and useNavigate for potential routing per chat
 import { loadConversations, saveConversations } from '../lib/localStorageUtils';
 
 // Constants (keep as before, or adjust)
