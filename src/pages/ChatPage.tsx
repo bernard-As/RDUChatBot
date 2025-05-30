@@ -299,13 +299,31 @@ export function ChatPage() {
 
       if (isCodeNestGeminiProxy) {
         responseText = responseData?.reply?.trim() || '';
+        updateMessageInConversation(activeConversationId, aiMessageId, {
+          text: responseText,
+          isLoading: false,
+          isError: false,
+        });
+        setIsOverallLoading(false);
       } else if (isHuggingFaceModel) {
         responseText = Array.isArray(responseData) ? responseData[0]?.generated_text?.trim() || '' : responseData.generated_text?.trim() || '';
+        updateMessageInConversation(activeConversationId, aiMessageId, {
+          text: responseText,
+          isLoading: false,
+          isError: false,
+        });
+        setIsOverallLoading(false);
       } else { // Other LLaMA models
         responseText = responseData.content?.trim() || responseData.response?.trim() || responseData.text?.trim() || '';
-         if (responseData.content === "" && responseData.stopped_eos) { // Handle llama.cpp empty content on stop
-            responseText = "[EOS]";
-         }
+        if (responseData.content === "" && responseData.stopped_eos) { // Handle llama.cpp empty content on stop
+          responseText = "[EOS]";
+        }
+        updateMessageInConversation(activeConversationId, aiMessageId, {
+          text: responseText === "[EOS]" ? '' : responseText,
+          isLoading: false,
+          isError: false,
+        });
+        setIsOverallLoading(false);
       }
       
       if (!responseText && responseText !== "[EOS]") { // Allow "[EOS]" as a valid (though empty) response
@@ -326,10 +344,11 @@ export function ChatPage() {
       // });
       // Store cleanup function if needed, though streamText returns it for manual clearing if component unmounts
 
-    } catch (error: any) {
-      console.error("Error in handleSendMessage:", error);
+    } catch (error) {
+      const err = error as Error;
+      console.error("Error in handleSendMessage:", err);
       updateMessageInConversation(activeConversationId, aiMessageId, {
-        text: `Error: ${error.message || "Failed to get AI response."}`,
+        text: `Error: ${err.message || "Failed to get AI response."}`,
         isLoading: false,
         isError: true,
       });
