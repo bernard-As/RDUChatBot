@@ -23,7 +23,7 @@ const MOCK_MODELS: LlamaModel[] = [
   {
     id: 'gemini-pro',
     name: 'Gemini Pro',
-    url: 'gemini'
+    url: 'http://localhost:8000/api/ai/chat/gemini/'
   }
 ];
 
