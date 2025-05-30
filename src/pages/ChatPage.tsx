@@ -23,7 +23,7 @@ const MOCK_MODELS: LlamaModel[] = [
   {
     id: 'gemini-pro',
     name: 'Gemini Pro',
-    url: 'http://localhost:8000/api/ai/chat/gemini/'
+    url: 'https://timetable.rdu.edu.tr/codenest_v2/api/ai/chat/gemini/'
   }
 ];
 
